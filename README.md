@@ -28,4 +28,16 @@ Pour utiliser ce projet, suivez les étapes suivantes :
 
 1. **Cloner le dépôt** :
    ```bash
-   git clone https://github.com/votre-utilisateur/deefy.git
+   git clone https://github.com/Geoffrey2501/projetWeb.git
+   
+2. **Démarrer les service web Apache et mysql**
+
+   ![image](https://github.com/user-attachments/assets/c00aeb97-ea2c-4fb2-b077-2e249e79e692)
+
+3. **Executer le script de création des tables et d'insertion des données** :
+
+4. **Lancer le programme principal main/index.php**
+   ![image](https://github.com/user-attachments/assets/6d132718-8f52-4489-9ca5-aca8fb3458d6)
+
+
+ 
