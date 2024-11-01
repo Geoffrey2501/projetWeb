@@ -10,18 +10,40 @@ use iutnc\deefy\audio\tracks\AudioTrack;
 use iutnc\deefy\audio\tracks\PodcastTrack;
 use function Sodium\add;
 
+/**
+ *
+ * Class DeefyRepository
+ */
 class DeefyRepository
 {
+    /**
+     * @var \PDO Connexion à la base de données
+     */
     private \PDO $pdo;
+
+    /**
+     * @var DeefyRepository Instance unique de la classe
+     */
     private static ?DeefyRepository $instance = null;
+    /**
+     * @var array Configuration de la base de données
+     */
     private static array $config = [];
 
+    /**
+     * DeefyRepository constructor.
+     * @param array $conf Configuration de la base de données
+     */
     private function __construct(array $conf)
     {
         $this->pdo = new \PDO($conf['dsn'], $conf['user'], $conf['pass'],
             [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
     }
 
+    /**
+     * Récupérer l'instance unique de la classe
+     * @return DeefyRepository
+     */
     public static function getInstance()
     {
         if (is_null(self::$instance)) {
@@ -30,6 +52,11 @@ class DeefyRepository
         return self::$instance;
     }
 
+    /**
+     * Définir la configuration de la base de données
+     * @param string $file Fichier de configuration
+     * @throws \Exception
+     */
     public static function setConfig(string $file)
     {
         $conf = parse_ini_file($file);
@@ -43,6 +70,11 @@ class DeefyRepository
         ];
     }
 
+    /**
+     * Récupérer un tableau de playlists
+     * @param int $idUser Id de l'utilisateur
+     * @return array
+     */
     public function findAllPlaylists(int $idUser): array
     {
         $stmt = $this->pdo->prepare("SELECT * FROM user2playlist WHERE id_user = :id");
@@ -57,6 +89,11 @@ class DeefyRepository
         return $playlists;
     }
 
+    /**
+     * Add an empty playlist to the database
+     * @param Playlist $pl Playlist to add
+     * @param int $idUser Id de l'utilisateur
+     */
     public function addPlaylistVide(Playlist $pl, int $idUser)
     {
         $stmt = $this->pdo->prepare("INSERT INTO playlist (nom) VALUES (:nom)");
@@ -69,6 +106,11 @@ class DeefyRepository
         $stmt->execute([':id_user' => $idUser, ':id_pl' => $id]);
     }
 
+    /**
+     * Add a track to the database
+     * @param AudioTrack $a Track to add
+     * @return int
+     */
     public function addTrack(AudioTrack $a): int
     {
         if ($a instanceof \iutnc\deefy\audio\tracks\PodcastTrack) {
@@ -111,7 +153,11 @@ class DeefyRepository
        return $id;
     }
 
-
+    /**
+     * Add a track to a playlist
+     * @param int $id Id de la track
+     * @param Playlist $pl Playlist
+     */
     public function addTrackToPlaylist(int $id, Playlist $pl)
     {
         // Récupérer l'id de la track
@@ -141,7 +187,11 @@ class DeefyRepository
         $stmt->execute([':id_playlist' => $id2, ':id_track' => $id, ':no_piste' => $noPiste]);
     }
 
-
+    /**
+     * get a playlist by its id
+     * @param int $id Id de la playlist
+     * @return AudioList
+     */
     public function getPlaylist(int $id): AudioList
     {
         $stmt = $this->pdo->prepare("SELECT * FROM playlist2track 
@@ -165,6 +215,10 @@ class DeefyRepository
     }
 
 
+    /**
+     * getPDO
+     * @return \PDO
+     */
     public function getPDO(): \PDO
     {
         return $this->pdo;

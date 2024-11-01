@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace iutnc\deefy\Action;
 
 use iutnc\deefy\auth\Authz;
@@ -7,9 +8,18 @@ use iutnc\deefy\exception\AuthzException;
 use iutnc\deefy\render\AudioListRenderer;
 use iutnc\deefy\repository\DeefyRepository;
 
+/**
+ * Class DisplayPlaylist
+ * Action pour afficher une playlist
+ */
 class DisplayPlaylist extends Action
 {
 
+    /**
+     * @return string
+     * en fonction de la méthode HTTP, affiche un formulaire
+     * pour ajouter une piste de podcast ou l'ajoute
+     */
     public function execute(): string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

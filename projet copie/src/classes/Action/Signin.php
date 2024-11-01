@@ -1,12 +1,22 @@
 <?php
 
+declare(strict_types=1);
 namespace iutnc\deefy\Action;
 
 use iutnc\deefy\repository\DeefyRepository;
 
+/**
+ * Class Signin
+ * Action pour se connecter
+ */
 class Signin extends Action
 {
 
+    /**
+     * @return string
+     * en fonction de la méthode HTTP, affiche un formulaire
+     * pour se connecter ou connecte l'utilisateur
+     */
     public function execute(): string
     {
         $repo = DeefyRepository::getInstance();

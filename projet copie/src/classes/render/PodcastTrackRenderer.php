@@ -1,11 +1,25 @@
 <?php
+declare(strict_types=1);
 namespace iutnc\deefy\render;
+
+/**
+ * Class PodcastTrackRenderer
+ * @package iutnc\deefy\render
+ */
 class PodcastTrackRenderer extends AudioTrackRenderer {
 
+    /**
+     * @return string
+     * implémentation de la méthode renderCompact
+     */
     public function renderCompact(): string {
         return "<div><strong>{$this->audioTrack->titre}</strong> by {$this->audioTrack->auteur}</div>";
     }
 
+    /**
+     * @return string
+     * implémentation de la méthode renderLong
+     */
     public function renderLong(): string {
         return "
             <div>

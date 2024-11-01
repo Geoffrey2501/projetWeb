@@ -4,9 +4,17 @@ namespace iutnc\deefy\Action;
 
 use iutnc\deefy\repository\DeefyRepository;
 
+/**
+ * Class AddUserAction
+ * action to add a user
+ */
 class AddUserAction extends Action
 {
 
+    /**
+     * execute the action and return the result
+     * @return string
+     */
     public function execute(): string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

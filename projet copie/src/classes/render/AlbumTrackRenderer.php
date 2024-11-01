@@ -1,8 +1,18 @@
 <?php
+
+declare(strict_types=1);
 namespace iutnc\deefy\render;
 
+/**
+ * Class AlbumTrackRenderer
+ * @package iutnc\deefy\render
+ */
 class AlbumTrackRenderer extends AudioTrackRenderer {
 
+    /**
+     * @return string
+     * render the audio track in a compact way
+     */
     public function renderCompact(): string {
         return "<div>
                     <p>{$this->audioTrack->genre}</p>
@@ -12,6 +22,10 @@ class AlbumTrackRenderer extends AudioTrackRenderer {
                 </div>";
     }
 
+    /**
+     * @return string
+     * render the audio track in a long way
+     */
     public function renderLong(): string {
         return "
             <div>

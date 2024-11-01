@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
 namespace iutnc\deefy\exception;
 
 
 use Exception;
 
+/**
+ * Class AuthnException
+ * @package iutnc\deefy\exception
+ */
 class AuthnException extends Exception
 {
 

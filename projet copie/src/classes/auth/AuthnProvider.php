@@ -1,13 +1,24 @@
 <?php
 
+declare(strict_types=1);
 namespace iutnc\deefy\auth;
 
 use iutnc\deefy\exception\AuthnException;
 use iutnc\deefy\exception\AuthzException;
 
+/**
+ * Class AuthnProvider
+ */
 class AuthnProvider
 {
 
+    /**
+     * @param \PDO $repo
+     * @param string $email
+     * @param string $password
+     * @throws AuthnException
+     * registers a new user
+     */
     public static function register(\PDO $repo, string $email, string $password)
     {
 
@@ -30,6 +41,13 @@ class AuthnProvider
         ]);
     }
 
+    /**
+     * @param \PDO $repo
+     * @param string $email
+     * @param string $password
+     * @throws AuthnException
+     * signs in a user
+     */
     public static function signin(\PDO $repo,string $email, string $password)
     {
         $stmt = $repo->prepare("SELECT * FROM user WHERE email = :email");
@@ -42,6 +60,10 @@ class AuthnProvider
             throw new AuthnException("Invalid email or password");
         }
     }
+
+    /**
+     * getter for the signed-in user
+     */
     public static function getSignedInUser()
     {
         if (!isset($_SESSION['user'])) {

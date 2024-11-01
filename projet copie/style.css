@@ -6,6 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
+/* Global styles */
 body {
     display: flex;
     flex-direction: column;
@@ -22,6 +23,7 @@ nav {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation links */
 nav ul {
     list-style: none;
     display: flex;
@@ -29,6 +31,7 @@ nav ul {
     gap: 20px;
 }
 
+/* Navigation link items */
 nav ul li a {
     color: #f4f4f4;
     text-decoration: none;
@@ -37,6 +40,7 @@ nav ul li a {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Navigation link items hover effect */
 nav ul li a:hover {
     background-color: #f4f4f4;
     color: #1a1a2e;
@@ -47,7 +51,6 @@ nav ul li a:hover {
 form {
    background-color: blue;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

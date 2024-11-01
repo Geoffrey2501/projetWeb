@@ -8,8 +8,17 @@ use iutnc\deefy\auth\AuthnProvider;
 use iutnc\deefy\render\AudioListRenderer;
 use iutnc\deefy\repository\DeefyRepository;
 
+/**
+ * Class AddPlaylist
+ * Action pour ajouter une playlist
+ */
 class AddPlaylistAction extends Action
 {
+    /**
+     * @return string
+     * en fonction de la méthode HTTP, affiche un formulaire
+     * pour créer une playlist ou la crée
+     */
     public function execute(): string
     {
 
@@ -35,7 +44,5 @@ class AddPlaylistAction extends Action
                 <button type='submit'>Créer la playlist</button>";
         }
         return $html;
-
-
     }
 }

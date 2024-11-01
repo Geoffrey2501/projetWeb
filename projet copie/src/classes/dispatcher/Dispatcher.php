@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace iutnc\deefy\dispatcher;
 
 use iutnc\deefy\Action\AddUserAction;
@@ -11,15 +12,27 @@ use iutnc\deefy\Action\AddPodcastTrackAction;
 use iutnc\deefy\Action\Signin;
 use iutnc\deefy\repository\DeefyRepository;
 
+/**
+ * Class Dispatcher
+ */
 class Dispatcher
 {
+    /**
+     * @var string
+     */
     private string $action;
 
+    /**
+     * Dispatcher constructor.
+     */
     public function __construct()
     {
         $this->action = $_GET['action'] ?? 'default';
     }
 
+    /**
+     * Run the dispatcher
+     */
     public function run(): void
     {
         DeefyRepository::setConfig(__DIR__ . '/../../../../config/deefy.db.ini');
@@ -51,6 +64,10 @@ class Dispatcher
         $this->renderPage($html);
     }
 
+    /**
+     * @param string $html
+     * renders the page
+     */
     private function renderPage(string $html): void
     {
         echo <<<HTML

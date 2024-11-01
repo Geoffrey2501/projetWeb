@@ -9,9 +9,18 @@ use iutnc\deefy\audio\tracks\PodcastTrack;
 use iutnc\deefy\render\AudioListRenderer;
 use iutnc\deefy\repository\DeefyRepository;
 
+/**
+ * Class AddPodcastTrackAction
+ * Action pour ajouter une piste de podcast
+ */
 class AddPodcastTrackAction extends Action
 {
 
+    /**
+     * @return string
+     * en fonction de la méthode HTTP, affiche un formulaire
+     * pour ajouter une piste de podcast ou l'ajoute
+     */
     public function execute(): string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

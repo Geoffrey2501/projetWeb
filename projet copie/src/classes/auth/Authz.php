@@ -1,13 +1,23 @@
 <?php
 
+declare(strict_types=1);
 namespace iutnc\deefy\auth;
 
 use iutnc\deefy\exception\AuthzException;
 use iutnc\deefy\repository\DeefyRepository;
 
+
+/**
+ * Class Authz
+ */
 class Authz
 {
 
+    /**
+     * Check user's role
+     * @return bool
+     * @throws AuthzException
+     */
     public static function checkRole(string $expectedRole): bool
     {
         $user = AuthnProvider::getSignedInUser();
@@ -18,6 +28,11 @@ class Authz
         return true;
     }
 
+    /**
+     * Check if the user is the owner of the playlist
+     * @param int $playlistId
+     * @throws AuthzException
+     */
     public static function checkPlaylistOwner(int $playlistId)
     {
         $user = AuthnProvider::getSignedInUser();
