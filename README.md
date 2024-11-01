@@ -36,7 +36,11 @@ Pour utiliser ce projet, suivez les étapes suivantes :
 
 3. **Executer le script de création des tables et d'insertion des données** :
 
-4. **Lancer le programme principal main/index.php**
+   ```bash
+   mysql -u root -p deefy < script.sql
+
+5. **Lancer le programme principal main/index.php**
+   
    ![image](https://github.com/user-attachments/assets/6d132718-8f52-4489-9ca5-aca8fb3458d6)
 
 
