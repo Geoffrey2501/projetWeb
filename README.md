@@ -44,4 +44,23 @@ Pour utiliser ce projet, suivez les étapes suivantes :
    ![image](https://github.com/user-attachments/assets/6d132718-8f52-4489-9ca5-aca8fb3458d6)
 
 
+## Tests 
+
+**Naviguer dans les différentes sections du site web**
+
+**Pour tester une authentification** : 
+
+   -Entrer email : user1@mail.com
+           mot de passe : user1
+
+**Pour créer un nouveau compte utilisateur** :
+
+   -Cliquer sur "S'inscrire" sur le formulaire d'inscription 
+   
+         Remplir les champs demander avec une email valide 
+         et un mot de passe d'au moins 10 caratères dont 
+         une lettre majuscule et minuscule, un caractère spécial 
+         et un chiffre
+
+
  
