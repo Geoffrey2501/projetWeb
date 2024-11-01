@@ -50,17 +50,17 @@ Pour utiliser ce projet, suivez les étapes suivantes :
 
 **Pour tester une authentification** : 
 
-   -Entrer email : user1@mail.com
+   -Entrer email : user1@mail.com,
            mot de passe : user1
 
 **Pour créer un nouveau compte utilisateur** :
 
    -Cliquer sur "S'inscrire" sur le formulaire d'inscription 
    
-         Remplir les champs demander avec une email valide 
-         et un mot de passe d'au moins 10 caratères dont 
-         une lettre majuscule et minuscule, un caractère spécial 
-         et un chiffre
+   Remplir les champs demander avec une email valide 
+   et un mot de passe d'au moins 10 caratères dont 
+   une lettre majuscule et minuscule, un caractère spécial 
+   et un chiffre
 
 
  
