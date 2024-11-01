@@ -1,0 +1,10 @@
+{
+    "name": "geoffrey/monprojet",
+    "description": "mon petit site web en php",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "iutnc\\deefy\\": "./src/classes/"
+        }
+    }
+}
