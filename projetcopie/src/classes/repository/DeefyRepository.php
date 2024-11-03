@@ -203,7 +203,6 @@ class DeefyRepository
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             if ($row['type'] != "A") $tracks[] = new PodcastTrack($row['titre'], $row['filename'], $row['auteur_podcast'], $row['date_posdcast'], $row['duree'], $row['genre']);
             else $tracks[] = new AlbumTrack($row['titre'], $row['filename'], $row['titre_album'], $row['no_piste_dans_liste'], $row['duree'], $row['genre'], $row['annee_album'], $row['artiste_album']);
-            echo"ok";
         }
 
         $stmt = $this->pdo->prepare("SELECT nom FROM playlist

@@ -122,6 +122,35 @@ class Dispatcher
         form button[type="submit"]:hover {
             background-color: #4a4a6d;
         }
+        
+        .audio-track {
+        max-width: 300px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        }
+
+        .audio-track .artist,
+        .audio-track .title {
+        font-size: 16px;
+        color: #333;
+        margin: 5px 0;
+        }
+
+        .audio-track .artist {
+        font-weight: bold;
+        color: #1a1a2e;
+        }
+
+        .audio-track audio {
+        margin-top: 10px;
+        width: 100%;
+        outline: none;
+        }
         </style>
             </nav>
         </head>

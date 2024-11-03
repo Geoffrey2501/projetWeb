@@ -32,7 +32,6 @@ class DisplayPlaylistAction extends Action
                 $playlists = $repo->findAllPlaylists(AuthnProvider::getSignedInUser());
                 foreach ($playlists as $id => $playlist) {
                     $render = new AudioListRenderer($playlist);
-                    echo count($playlist->audios)."<br>";
                     $playlistContent = $render->render(); // Récupère le HTML généré par le render
 
                     // Formulaire pour définir la playlist courante avec render comme bouton submit

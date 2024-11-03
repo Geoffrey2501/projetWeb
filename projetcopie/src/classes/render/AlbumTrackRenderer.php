@@ -14,12 +14,14 @@ class AlbumTrackRenderer extends AudioTrackRenderer {
      * render the audio track in a compact way
      */
     public function renderCompact(): string {
-        return "<div>
-                    <p>{$this->audioTrack->genre}</p>
-                    <p> {$this->audioTrack->artiste}</p>
-                    <p>{$this->audioTrack->titre}</p>
-                    <p>{$this->audioTrack->nomFichier}</p>
-                </div>";
+        return "<div class='audio-track'>
+                <p class='artist'>Artiste: {$this->audioTrack->artiste}</p>
+                <p class='title'>Titre: {$this->audioTrack->titre} </p>
+                <audio controls>
+                        <source src='/audio/".$this->audioTrack->nomFichier."' type='audio/mpeg'>
+                        Votre navigateur ne supporte pas la lecture audio.
+                </audio>
+        </div>";
     }
 
     /**

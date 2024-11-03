@@ -13,7 +13,14 @@ class PodcastTrackRenderer extends AudioTrackRenderer {
      * implémentation de la méthode renderCompact
      */
     public function renderCompact(): string {
-        return "<div><strong>{$this->audioTrack->titre}</strong> by {$this->audioTrack->auteur}</div>";
+        return "<div class='audio-track'>
+                <p class='artist'>Auteur: {$this->audioTrack->auteur}</p>
+                <p class='title'>Titre: {$this->audioTrack->titre} </p>
+                <audio controls>
+                        <source src='audio/".$this->audioTrack->nomFichier."' type='audio/mpeg'>
+            Votre navigateur ne supporte pas la lecture audio.
+                </audio>
+        </div>";
     }
 
     /**

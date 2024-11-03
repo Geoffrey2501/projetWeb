@@ -25,7 +25,7 @@ class DisplayPlaylist extends Action
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['id'])){
                 try{
-                    $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+                    $id = (int)filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
                     Authz::checkPlaylistOwner($id);
                     $_SESSION['playlist'] = serialize(DeefyRepository::getInstance()->getPlaylist($id));
                 }catch (AuthzException $e){
