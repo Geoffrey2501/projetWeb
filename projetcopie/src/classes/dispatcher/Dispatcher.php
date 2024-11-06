@@ -165,6 +165,7 @@ class Dispatcher
                     <li><a href="?action=add-playlist">Créer une playlist</a></li>
                     <li><a href="?action=playlist">Mes playlists</a></li>
                     <li><a href="?action=display-playlist">Afficher la playlist courante</a></li>
+                    <li><a href="?action=add-user">S'inscrire</a></li>
                 </ul>
             </nav>
             $html

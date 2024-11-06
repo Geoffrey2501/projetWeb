@@ -29,7 +29,7 @@ class DisplayPlaylistAction extends Action
             }else{
                 $html = "<h1>My playlists</h1>";
                 $repo = DeefyRepository::getInstance();
-                $playlists = $repo->findAllPlaylists(AuthnProvider::getSignedInUser());
+                $playlists = $repo->findAllPlaylists((int)AuthnProvider::getSignedInUser());
                 foreach ($playlists as $id => $playlist) {
                     $render = new AudioListRenderer($playlist);
                     $playlistContent = $render->render(); // Récupère le HTML généré par le render

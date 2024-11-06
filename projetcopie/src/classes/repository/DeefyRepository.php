@@ -68,6 +68,8 @@ class DeefyRepository
             'user' => $conf['user'],
             'pass' => $conf['pass']
         ];
+		
+		
     }
 
     /**
@@ -83,7 +85,7 @@ class DeefyRepository
         $playlists = [];
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
 
-            $playlists[$row['id_pl']] = $this->getPlaylist($row['id_pl']);
+            $playlists[$row['id_pl']] = $this->getPlaylist((int)$row['id_pl']);
         }
 
         return $playlists;
@@ -202,7 +204,7 @@ class DeefyRepository
         $tracks = [];
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             if ($row['type'] != "A") $tracks[] = new PodcastTrack($row['titre'], $row['filename'], $row['auteur_podcast'], $row['date_posdcast'], $row['duree'], $row['genre']);
-            else $tracks[] = new AlbumTrack($row['titre'], $row['filename'], $row['titre_album'], $row['no_piste_dans_liste'], $row['duree'], $row['genre'], $row['annee_album'], $row['artiste_album']);
+            else $tracks[] = new AlbumTrack($row['titre'], $row['filename'], $row['titre_album'], (int)$row['no_piste_dans_liste'], (int)$row['duree'], $row['genre'], (int) $row['annee_album'], $row['artiste_album']);
         }
 
         $stmt = $this->pdo->prepare("SELECT nom FROM playlist

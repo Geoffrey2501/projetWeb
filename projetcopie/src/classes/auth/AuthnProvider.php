@@ -50,8 +50,8 @@ class AuthnProvider
      */
     public static function signin(\PDO $repo,string $email, string $password)
     {
-        $stmt = $repo->prepare("SELECT * FROM user WHERE email = :email");
-        $stmt->execute([':email' => $email]);
+        $stmt = $repo->prepare("SELECT * FROM user");
+        $stmt->execute();
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if (password_verify($password, $user['passwd'])) {
